@@ -5,7 +5,7 @@ import "flickity/css/flickity.css";
 import img1 from "../../images/recipes/sushi-1.jpg";
 import img2 from "../../images/recipes/pizza-1.jpg";
 import img3 from "../../images/recipes/burger-1.jpg";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
+// import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
 const RecipeList = () => {
