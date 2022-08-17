@@ -4,6 +4,8 @@ import RecipeCard from "./RecipeCard";
 import Flickity from "flickity";
 import "flickity/css/flickity.css";
 import img1 from "../../images/recipes/sushi-1.jpg";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
 
 const RecipeList = () => {
   const recipes = [
@@ -45,7 +47,26 @@ const RecipeList = () => {
   return (
     <section>
       <Container>
-        <div class="main-carousel -mx-2">
+        <Splide
+          options={{
+            rewind: true,
+            width: 800,
+            gap: "1rem",
+            pagination: false,
+          }}
+        >
+          {recipes.map((recipe) => (
+            <SplideSlide>
+              <RecipeCard
+                name={recipe.name}
+                image={recipe.image}
+                noOfIngredients={recipe.ingredients.length}
+                duration={recipe.duration}
+              />
+            </SplideSlide>
+          ))}
+        </Splide>
+        {/* <div class="main-carousel -mx-2">
           {recipes.map((recipe) => (
             <div className="carousel-cell w-[95%] px-2">
               <RecipeCard
@@ -56,7 +77,7 @@ const RecipeList = () => {
               />
             </div>
           ))}
-        </div>
+        </div> */}
       </Container>
     </section>
   );
