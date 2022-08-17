@@ -1,13 +1,19 @@
 @import "./circulaFont.css";
+@import url(https://fonts.googleapis.com/css?family=Arima:100,200,300,regular,500,600,700);
 
 * {
-  font-family: "Circular Std";
+  /* font-family: "Circular Std"; */
+  font-family: "Arima";
 }
 .active-tab {
-  @apply bg-gradient-to-tl from-orange-500 via-orange-500 to-orange-600 text-white !important;
+  @apply bg-primary !important;
   /* box-shadow: 0px 0px 10px 1px rgba(234 88 12 0.582) !important; */
 }
 
 .custom-shadow {
   box-shadow: 0px 0px 10px 1px rgba(214, 214, 214, 0.475);
+}
+
+.bg-primary {
+  @apply bg-gradient-to-tr from-orange-500 via-orange-500 to-orange-700 text-white;
 }

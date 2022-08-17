@@ -1,5 +1,5 @@
 import React from "react";
-import { FaHeart } from "react-icons/fa";
+import { FaClock, FaHeart, FaUtensilSpoon } from "react-icons/fa";
 
 const RecipeCard = ({ image, name, noOfIngredients, duration }) => {
   return (
@@ -10,10 +10,15 @@ const RecipeCard = ({ image, name, noOfIngredients, duration }) => {
         </button>
         <div className="p-5">
           <h2 className="text-2xl font-bold">{name}</h2>
-          <div className="flex text-gray-400 text-sm font-medium divide-x divide-gray-400 mt-2">
-            <span className="pr-3">{noOfIngredients} Ingredients</span>
+          <div className="flex text-gray-400 text-sm font-medium divide-x divide-gray-500 mt-2">
+            <span className="pr-3 flex space-x-2 items-center">
+              <FaUtensilSpoon />
+              <span>{noOfIngredients} Ingredients</span>
+            </span>
 
-            <span className="pl-3"> {duration} mins</span>
+            <span className="pl-3 flex space-x-2 items-center">
+              <FaClock /> <span>{duration} mins</span>
+            </span>
           </div>
         </div>
       </div>

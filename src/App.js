@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "./components/global/Container";
 import Layout from "./components/global/Layout";
+import Navigation from "./components/global/navigation/Navigation";
 import SearchInput from "./components/global/SearchInput";
 import Tabs from "./components/global/Tabs";
 import RecipeList from "./components/recipes/RecipeList";
@@ -18,6 +19,7 @@ const App = () => {
       <Tabs />
       <RecipeList />
       <div className="h-screen"></div>
+      <Navigation />
     </Layout>
   );
 };
