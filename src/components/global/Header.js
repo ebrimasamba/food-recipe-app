@@ -1,16 +1,14 @@
 import React from "react";
 import Container from "./Container";
+import { FaBars } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <heade>
-      <Container>
-        <div>
-          <p>Good Morning</p>
-          <h2>Ebrima Samba</h2>
-        </div>
+    <header>
+      <Container className={"py-5"}>
+        <FaBars className="text-xl" />
       </Container>
-    </heade>
+    </header>
   );
 };
 
