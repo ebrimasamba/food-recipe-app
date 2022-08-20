@@ -1,33 +1,43 @@
 import React from "react";
-import { FaBell, FaCog, FaHeart, FaPlus, FaUtensils } from "react-icons/fa";
+import { FaBell, FaCog, FaHeart, FaHome, FaPlus } from "react-icons/fa";
 import Container from "../Container";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
     <div className="fixed w-full  z-[100] bottom-0 left-0">
-      <div className="flex justify-center -mb-5">
-        <button className="bg-primary w-10 h-10 rounded-full flex items-center justify-center text-2xl">
+      {/* <div className="flex justify-center -mb-10">
+        <Link
+          to="/recipe/new"
+          className="bg-primary w-10 h-10 rounded-full flex items-center justify-center text-2xl"
+        >
           <FaPlus />
-        </button>
-      </div>
-      <div className="py-5 pt-9 text-gray-700 navigation-shadow bg-white">
+        </Link>
+      </div> */}
+      <div className="py-2  text-gray-500 navigation-shadow bg-white">
         <Container className={"flex justify-between items-center"}>
-          <a href="/" className="flex-col flex items-center">
-            <FaUtensils />
-            <span className="text-sm mt-1">Browse</span>
-          </a>
-          <a href="/" className="flex-col flex items-center">
+          <Link to="/" className="flex-col flex items-center text-xl">
+            <FaHome />
+            {/* <span className="text-sm mt-1">Home</span> */}
+          </Link>
+          <Link to="/" className="flex-col flex items-center text-xl">
             <FaHeart />
-            <span className="text-sm mt-1">Saved</span>
-          </a>{" "}
-          <a href="/" className="flex-col flex items-center">
+            {/* <span className="text-sm mt-1">Saved</span> */}
+          </Link>{" "}
+          <Link
+            to="/recipe/new"
+            className="bg-primary w-12 h-12 rounded-full flex items-center justify-center text-2xl -translate-y-3"
+          >
+            <FaPlus />
+          </Link>
+          <Link to="/" className="flex-col flex items-center text-xl">
             <FaBell />
-            <span className="text-sm mt-1">Notification</span>
-          </a>{" "}
-          <a href="/" className="flex-col flex items-center">
+            {/* <span className="text-sm mt-1">Notification</span> */}
+          </Link>{" "}
+          <Link to="/" className="flex-col flex items-center text-xl">
             <FaCog />
-            <span className="text-sm mt-1">Settings</span>
-          </a>
+            {/* <span className="text-sm mt-1">Settings</span> */}
+          </Link>
         </Container>
       </div>
     </div>
@@ -35,3 +45,5 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
+

@@ -1,26 +1,14 @@
 import React from "react";
-import Container from "./components/global/Container";
-import Layout from "./components/global/Layout";
-import Navigation from "./components/global/navigation/Navigation";
-import SearchInput from "./components/global/SearchInput";
-import Tabs from "./components/global/Tabs";
-import RecipeList from "./components/recipes/RecipeList";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Recipe from "./pages/recipe/index";
 
 const App = () => {
   return (
-    <Layout>
-      <Container>
-        <h1 className="font-bold text-2xl max-w-xs mb-5">
-          Find the best recipe for cooking.
-        </h1>
-        <SearchInput />
-      </Container>
-
-      <Tabs />
-      <RecipeList />
-      <div className="h-screen"></div>
-      <Navigation />
-    </Layout>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="recipe/:id" element={<Recipe />} />
+    </Routes>
   );
 };
 
