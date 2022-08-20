@@ -1,6 +1,6 @@
 import React from "react";
 import { FaClock } from "react-icons/fa";
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const RecipeCard = ({ image, name, noOfIngredients, duration }) => {
   return (
