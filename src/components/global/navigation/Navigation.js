@@ -14,27 +14,27 @@ const Navigation = () => {
           <FaPlus />
         </Link>
       </div> */}
-      <div className="py-2  text-gray-500 navigation-shadow bg-white">
+      <div className="py-1  text-gray-500 navigation-shadow bg-white">
         <Container className={"flex justify-between items-center"}>
-          <Link to="/" className="flex-col flex items-center text-xl">
+          <Link to="/" className="flex-col flex items-center text-2xl">
             <FaHome />
             {/* <span className="text-sm mt-1">Home</span> */}
           </Link>
-          <Link to="/" className="flex-col flex items-center text-xl">
+          <Link to="/" className="flex-col flex items-center text-2xl">
             <FaHeart />
             {/* <span className="text-sm mt-1">Saved</span> */}
           </Link>{" "}
           <Link
             to="/recipe/new"
-            className="bg-primary w-12 h-12 rounded-full flex items-center justify-center text-2xl -translate-y-3"
+            className="bg-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl -translate-y-4"
           >
             <FaPlus />
           </Link>
-          <Link to="/" className="flex-col flex items-center text-xl">
+          <Link to="/" className="flex-col flex items-center text-2xl">
             <FaBell />
             {/* <span className="text-sm mt-1">Notification</span> */}
           </Link>{" "}
-          <Link to="/" className="flex-col flex items-center text-xl">
+          <Link to="/" className="flex-col flex items-center text-2xl">
             <FaCog />
             {/* <span className="text-sm mt-1">Settings</span> */}
           </Link>
@@ -45,5 +45,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
-

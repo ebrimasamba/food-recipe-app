@@ -10,9 +10,9 @@ const Home = () => {
   return (
     <Layout>
       <Container>
-        <h1 className="font-bold text-2xl max-w-xs mb-5">
+        {/* <h1 className="font-bold text-2xl max-w-xs mb-5">
           Find the best recipe for cooking.
-        </h1>
+        </h1> */}
         <SearchInput />
       </Container>
       <Tabs />
