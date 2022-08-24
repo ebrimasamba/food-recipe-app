@@ -1,29 +1,34 @@
 import React from "react";
-import { FaClock } from "react-icons/fa";
+import { BsClock } from "react-icons/bs";
+
 import { Link } from "react-router-dom";
 
 const RecipeCard = ({ image, name, noOfIngredients, duration }) => {
   return (
     <Link
       to={`/recipe/${name}`}
-      className="block w-full relative overflow-hidden rounded-lg"
+      className="block w-full h-full relative overflow-hidden rounded-lg custom-shadow bg-white p-2"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/40 via-gray-900/20 to-gray-900 text-white flex items-end z-10">
-        <span className="flex space-x-2 items-center absolute top-2 right-2  text-gray-100 text-sm">
-          <FaClock /> <span>{duration} mins</span>
+      <div className="h-32 relative">
+        <img
+          src={image}
+          className="w-full h-full object-cover rounded-md"
+          alt="recipe"
+        />
+        <span className="flex space-x-2 items-center absolute bottom-2 right-2  text-zinc-300 bg-primary text-xs font-semibold p-1 rounded-md">
+          <BsClock /> <span>{duration} mins</span>
         </span>
+      </div>
 
-        <div className="p-2">
+      <div className="">
+        <div className="py-2 px-1">
           <h2 className="text font-bold">{name}</h2>
-          <div className="flex flex-wrap text-gray-400 text-sm font-medium   text-sn">
+          <div className="flex flex-wrap text-zinc-400 text-sm text-sn">
             <span className="">
               <span>{noOfIngredients} Ingredients</span>
             </span>
           </div>
         </div>
-      </div>
-      <div className="h-48 relative">
-        <img src={image} className="w-full h-full object-cover " alt="recipe" />
       </div>
     </Link>
   );

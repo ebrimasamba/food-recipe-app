@@ -1,16 +1,18 @@
 import React from "react";
-import { FaSearch } from "react-icons/fa";
+import { BsSearch } from "react-icons/bs";
 
-const SearchInput = () => {
+const SearchInput = ({ searchRecipe, search }) => {
   return (
-    <div className="mb-5 flex bg-gray-100 rounded-full overflow-hidden px-3 py-1.5">
+    <div className="mb-5 flex bg-white custom-shadow rounded-lg overflow-hidden px-3 py-1.5">
       <button className="">
-        <FaSearch />
+        <BsSearch />
       </button>
       <input
         type="text"
         placeholder="Search for recipe"
-        className="w-full border-none bg-transparent focus:ring-0 "
+        className="w-full border-none bg-transparent focus:ring-0 text-sm"
+        value={search}
+        onChange={(e) => searchRecipe(e.target.value)}
       />
     </div>
   );

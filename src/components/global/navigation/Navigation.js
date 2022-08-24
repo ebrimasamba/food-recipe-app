@@ -14,7 +14,7 @@ const Navigation = () => {
           <FaPlus />
         </Link>
       </div> */}
-      <div className="py-1  text-gray-500 navigation-shadow bg-white">
+      <div className="py-1  text-zinc-500 navigation-shadow bg-white">
         <Container className={"flex justify-between items-center"}>
           <Link to="/" className="flex-col flex items-center text-2xl">
             <FaHome />

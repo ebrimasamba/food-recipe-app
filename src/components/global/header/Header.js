@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Container from "../Container";
-import { FaBars, FaBell, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { BsList, BsX, BsPlus } from "react-icons/bs";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,12 +18,17 @@ const Header = () => {
     <header className="">
       <Container className={"py-6 flex justify-between"}>
         <button className="" onClick={openMenu}>
-          <FaBars className="text-xl" />
+          <BsList className="text-2xl" />
         </button>
         <div>
           <h1 className="text-xl font-semibold">Home</h1>
         </div>
-        <FaBell className="text-xl" />
+        <Link
+          to="/recipe/new"
+          className="w-7 h-7 border-[1.5px] border-black rounded-full flex items-center justify-center"
+        >
+          <BsPlus className="text-3xl" />
+        </Link>
       </Container>
 
       <div
@@ -39,9 +45,9 @@ const Header = () => {
               : "-translate-x-full transition-all duration-500 ease-in-out"
           }`}
         >
-          <div className="p-4 py-6 bg-gray-100">
+          <div className="p-4  bg-zinc-100">
             <button>
-              <FaTimes className="text-xl" onClick={closeMenu} />
+              <BsX className="text-3xl" onClick={closeMenu} />
             </button>
           </div>
         </div>

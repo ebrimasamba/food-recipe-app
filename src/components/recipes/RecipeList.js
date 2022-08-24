@@ -1,79 +1,107 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Container from "../global/Container";
 import RecipeCard from "./RecipeCard";
 import "flickity/css/flickity.css";
-import img1 from "../../images/recipes/sushi-1.jpg";
-import img2 from "../../images/recipes/pizza-1.jpg";
-import img3 from "../../images/recipes/burger-1.jpg";
-// import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
+import Isotope from "isotope-layout";
+const RecipeList = ({ recipes, search }) => {
+  const isotopeRef = useRef();
+  const allBtnRef = useRef();
+  const breakfastBtnRef = useRef();
+  const lunchBtnRef = useRef();
+  const dinnerBtnRef = useRef();
 
-const RecipeList = () => {
-  const recipes = [
-    {
-      name: "Salmon Sushi Matcha",
-      category: "sushi",
-      image: img1,
-      ingredients: [{}],
-      duration: 15,
-      directions: [{}],
-    },
-    {
-      name: "Pepperomi Pizza",
-      category: "sushi",
-      image: img2,
-      ingredients: [{}],
-      duration: 15,
-      directions: [{}],
-    },
-    {
-      name: "Hamburger",
-      category: "sushi",
-      image: img3,
-      ingredients: [{}],
-      duration: 15,
-      directions: [{}],
-    },
-    {
-      name: "Pepperomi Pizza",
-      category: "sushi",
-      image: img2,
-      ingredients: [{}],
-      duration: 15,
-      directions: [{}],
-    },
-    {
-      name: "Sushi",
-      category: "sushi",
-      image: img1,
-      ingredients: [{}],
-      duration: 15,
-      directions: [{}],
-    },
-    {
-      name: "Sushi",
-      category: "sushi",
-      image: img1,
-      ingredients: [{}],
-      duration: 15,
-      directions: [{}],
-    },
-  ];
+  useEffect(() => {
+    const iso = new Isotope(isotopeRef.current, {
+      itemSelector: ".recipe-item",
+      layoutMode: "masonry",
+    });
+
+    allBtnRef.current.addEventListener("click", (e) => {
+      iso.arrange({ filter: "*" });
+      e.target.classList.add("active-tab");
+      breakfastBtnRef.current.classList.remove("active-tab");
+      lunchBtnRef.current.classList.remove("active-tab");
+      dinnerBtnRef.current.classList.remove("active-tab");
+    });
+    breakfastBtnRef.current.addEventListener("click", (e) => {
+      iso.arrange({ filter: ".breakfast" });
+      e.target.classList.add("active-tab");
+      allBtnRef.current.classList.remove("active-tab");
+      lunchBtnRef.current.classList.remove("active-tab");
+      dinnerBtnRef.current.classList.remove("active-tab");
+    });
+    lunchBtnRef.current.addEventListener("click", (e) => {
+      iso.arrange({ filter: ".lunch" });
+      e.target.classList.add("active-tab");
+      breakfastBtnRef.current.classList.remove("active-tab");
+      allBtnRef.current.classList.remove("active-tab");
+      dinnerBtnRef.current.classList.remove("active-tab");
+    });
+    dinnerBtnRef.current.addEventListener("click", (e) => {
+      iso.arrange({ filter: ".dinner" });
+      e.target.classList.add("active-tab");
+      breakfastBtnRef.current.classList.remove("active-tab");
+      lunchBtnRef.current.classList.remove("active-tab");
+      allBtnRef.current.classList.remove("active-tab");
+    });
+  }, []);
 
   return (
     <section>
       <Container className={""}>
-        <div className="grid grid-cols-2 gap-3">
-          {recipes.map((recipe) => (
-            <div>
-              <RecipeCard
-                name={recipe.name}
-                image={recipe.image}
-                noOfIngredients={recipe.ingredients.length}
-                duration={recipe.duration}
-              />
-            </div>
-          ))}
+        <div className="mb-5">
+          <div className="flex space-x-3">
+            <button
+              className="bg-white custom-shadow w-full active-tab  font-semibold p-2 rounded-lg text-sm"
+              ref={allBtnRef}
+            >
+              All
+            </button>
+            <button
+              className="bg-white custom-shadow w-full font-semibold p-2 rounded-lg text-sm"
+              ref={breakfastBtnRef}
+            >
+              Breakfast
+            </button>
+            <button
+              className="bg-white custom-shadow w-full font-semibold p-2 rounded-lg text-sm"
+              ref={lunchBtnRef}
+            >
+              Lunch
+            </button>
+            <button
+              className="bg-white custom-shadow w-full font-semibold p-2 rounded-lg text-sm"
+              ref={dinnerBtnRef}
+            >
+              Dinner
+            </button>
+          </div>
+        </div>
+        <div className="-mx-1.5" ref={isotopeRef}>
+          {recipes
+            .filter((recipe, index) => {
+              if (search === "") {
+                return recipe;
+              }
+
+              return recipe.name
+                .toLowerCase()
+                .replace(/\s/g, "")
+                .includes(search.replace(/\s/g, ""));
+            })
+            .map((recipe, index) => (
+              <div
+                className={`recipe-item w-1/2 px-1.5 mb-3 ${recipe.category}`}
+                key={index}
+              >
+                <RecipeCard
+                  name={recipe.name}
+                  image={recipe.image}
+                  noOfIngredients={recipe.ingredients.length}
+                  duration={recipe.duration}
+                />
+              </div>
+            ))}
         </div>
         {/* <Splide
           className="rounded-lg"

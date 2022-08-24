@@ -1,22 +1,24 @@
 import React from "react";
 import Container from "./Container";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
 
 const Tabs = () => {
   return (
     <div className="mb-5">
       <Container>
         <div className="flex space-x-3">
-          <button className="border flex-1 active-tab  font-semibold p-3 rounded-full text-sm">
+          <button className="bg-white custom-shadow w-full active-tab  font-semibold p-2 rounded-lg text-sm">
             All
           </button>
-          <button className="border flex-1 font-semibold p-3 rounded-full text-sm">
-            Sushi
+          <button className="bg-white custom-shadow w-full font-semibold p-2 rounded-lg text-sm">
+            Breakfast
           </button>
-          <button className="border flex-1 font-semibold p-3 rounded-full text-sm">
-            Burger
+          <button className="bg-white custom-shadow w-full font-semibold p-2 rounded-lg text-sm">
+            Lunch
           </button>
-          <button className="border flex-1 font-semibold p-3 rounded-full text-sm">
-            Pizza
+          <button className="bg-white custom-shadow w-full font-semibold p-2 rounded-lg text-sm">
+            Dinner
           </button>
         </div>
       </Container>

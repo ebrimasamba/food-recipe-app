@@ -1,9 +1,10 @@
 @import "./circulaFont.css";
 @import url(https://fonts.googleapis.com/css?family=Arima:100,200,300,regular,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,regular,500,600,700,100italic,200italic,300italic,italic,500italic,600italic,700italic);
 
 * {
-  font-family: "Circular Std";
-  /* font-family: "Arima"; */
+  /* font-family: "Circular Std"; */
+  font-family: "Josefin Sans", "Arima";
 }
 .active-tab {
   @apply bg-primary !important;
@@ -19,5 +20,5 @@
 }
 
 .bg-primary {
-  @apply bg-gradient-to-tr from-orange-500 via-orange-500 to-orange-700 text-white;
+  @apply bg-gradient-to-tr from-teal-500 via-teal-500 to-teal-700 text-white;
 }
