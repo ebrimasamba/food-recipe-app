@@ -1,7 +1,5 @@
 import React from "react";
 import Container from "./Container";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
 
 const Tabs = () => {
   return (
